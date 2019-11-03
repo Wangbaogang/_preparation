@@ -6,6 +6,12 @@ class LikeButton extends React.Component {
   constructor(props) {
     super(props);
     this.state = { liked: false };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    debugger;
+    this.setState({ liked: true });
   }
 
   render() {
@@ -15,11 +21,11 @@ class LikeButton extends React.Component {
 
     return e(
       'button',
-      { onClick: () => this.setState({ liked: true }) },
+      { onClick: this.handleClick },
       'Like'
     );
   }
 }
 
-const domContainer = document.querySelector('#react-dom');
+const domContainer = document.querySelector('#like_button');
 ReactDOM.render(e(LikeButton), domContainer);

@@ -1,0 +1,19 @@
+{
+  "name": "backbone_based_spa_architecture_demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"BUILD_ENV=dev gulp dev\" \"BUILD_ENV=dev node ./simpleServer\"",
+    "build": "concurrently \"BUILD_ENV=build gulp build\" \"BUILD_ENV=build node ./simpleServer\""
+  },
+  "author": "1371069685@qq.com",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^5.0.0",
+    "del": "^5.1.0",
+    "gulp": "^4.0.2",
+    "gulp-template": "^5.0.0"
+  }
+}

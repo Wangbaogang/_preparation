@@ -9,5 +9,7 @@
 
 ## React
 
-* 问：从源代码层面解析 `this.someFunction=this.someFunction.bind(this)`的必要性？
+* 问：如何解释 `this.someFunction=this.someFunction.bind(this)`的必要性？
+  答：没有魔法。这与Javascript语法特性有关。
+  如`LoginClass`是一个React Class。我们构造一个该类的实例`login`, this.someFunction是login的原型方法（即：`this.__proto__.someFunction`），只有bind到实例上，该函数内部使用`this`才能正确指向login实例。
 

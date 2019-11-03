@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Backbone Router</title>
+    <script src="./libs/jquery/jquery-3.4.1.js"></script>
+    <script src="./libs/underscore/underscore-1.9.1.js"></script>
+    <script src="./libs/backbone/backbone-1.4.0.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+        var MyView = Backbone.View.extend({
+            template: _.template(`
+                <h1 class="inner">
+                    this is a backbone view created at <%- time %>
+                </h1>
+            `),
+            className: 'outer',
+            initialize() {
+                this.render();
+            },
+            render() {
+                var time = new Date().toLocaleString();
+                this.$el.append(this.template({
+                    time: time
+                }));
+            },
+            destroy() {
+                this.$el.remove();
+            }
+        })
+
+        var view = new MyView();
+        document.querySelector("#app").appendChild(view.el);
+    </script>
+</body>
+</html>
